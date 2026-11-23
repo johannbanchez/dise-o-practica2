@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Diseño de Formularios HTML</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #263238;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            background-color: #37474f;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: white;
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #263238;
+            border-bottom: 2px solid #90a4ae;
+            padding-bottom: 8px;
+        }
+
+        .concepto {
+            background-color: #eceff1;
+            padding: 15px;
+            border-left: 5px solid #607d8b;
+            margin: 15px 0;
+        }
+
+        code {
+            background-color: #eceff1;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .formulario {
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 8px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px solid #78909c;
+        }
+
+        .opciones label {
+            display: inline-block;
+            margin-right: 20px;
+            font-weight: normal;
+        }
+
+        .opciones input {
+            width: auto;
+        }
+
+        .botones {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .enviar {
+            background-color: #455a64;
+            color: white;
+        }
+
+        .limpiar {
+            background-color: #cfd8dc;
+            color: #263238;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #263238;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .nota {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <h1>Diseño de Formularios HTML</h1>
+        <p>Etiquetas, campos, botones, listas y validaciones básicas</p>
+    </header>
+
+    <!-- MENÚ -->
+    <nav>
+        <a href="#etiquetas">Etiquetas</a>
+        <a href="#campos">Campos</a>
+        <a href="#listas">Listas</a>
+        <a href="#validacion">Validación</a>
+        <a href="#ejemplo">Ejemplo</a>
+    </nav>
+
+    <main>
+
+        <!-- INTRODUCCIÓN -->
+        <section>
+            <h2>¿Qué es un formulario?</h2>
+
+            <p>
+                Un formulario HTML permite recopilar información proporcionada
+                por los usuarios. Puede utilizarse para registros, encuestas,
+                búsquedas, comentarios, solicitudes y muchas otras actividades.
+            </p>
+
+            <div class="concepto">
+                <strong>Idea principal:</strong>
+                Un buen formulario debe ser claro, ordenado, fácil de utilizar
+                y solicitar únicamente la información necesaria.
+            </div>
+        </section>
+
+
+        <!-- ETIQUETAS -->
+        <section id="etiquetas">
+            <h2>1. Etiquetas de los formularios</h2>
+
+            <p>
+                La etiqueta <code>&lt;form&gt;</code> define el formulario.
+                Dentro de él se colocan los diferentes controles que utilizará
+                el usuario.
+            </p>
+
+            <p>
+                La etiqueta <code>&lt;label&gt;</code> identifica cada campo
+                y ayuda al usuario a saber qué información debe proporcionar.
+            </p>
+
+            <pre>
+&lt;form&gt;
+
+    &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" id="nombre"&gt;
+
+&lt;/form&gt;
+            </pre>
+
+            <p class="nota">
+                Es recomendable relacionar el atributo <code>for</code> del
+                label con el <code>id</code> del campo correspondiente.
+            </p>
+        </section>
+
+
+        <!-- CAMPOS DE ENTRADA -->
+        <section id="campos">
+            <h2>2. Campos de entrada</h2>
+
+            <p>
+                La etiqueta <code>&lt;input&gt;</code> permite crear diferentes
+                tipos de campos.
+            </p>
+
+            <ul>
+                <li><code>text</code> – texto.</li>
+                <li><code>email</code> – correo electrónico.</li>
+                <li><code>password</code> – contraseña.</li>
+                <li><code>number</code> – números.</li>
+                <li><code>date</code> – fecha.</li>
+                <li><code>radio</code> – seleccionar una opción.</li>
+                <li><code>checkbox</code> – seleccionar varias opciones.</li>
+            </ul>
+
+            <p>Ejemplo:</p>
+
+            <pre>
+&lt;label for="correo"&gt;Correo:&lt;/label&gt;
+&lt;input type="email" id="correo" name="correo"&gt;
+
+&lt;label for="edad"&gt;Edad:&lt;/label&gt;
+&lt;input type="number" id="edad" name="edad"&gt;
+            </pre>
+        </section>
+
+
+        <!-- LISTAS -->
+        <section id="listas">
+            <h2>3. Listas de selección</h2>
+
+            <p>
+                La etiqueta <code>&lt;select&gt;</code> permite mostrar una
+                lista de opciones para que el usuario seleccione una.
+            </p>
+
+            <pre>
+&lt;label for="curso"&gt;Curso:&lt;/label&gt;
+
+&lt;select id="curso" name="curso"&gt;
+    &lt;option value=""&gt;Seleccione una opción&lt;/option&gt;
+    &lt;option value="programacion"&gt;Programación&lt;/option&gt;
+    &lt;option value="redes"&gt;Redes&lt;/option&gt;
+    &lt;option value="ofimatica"&gt;Ofimática&lt;/option&gt;
+&lt;/select&gt;
+            </pre>
+        </section>
+
+
+        <!-- BOTONES -->
+        <section>
+            <h2>4. Botones</h2>
+
+            <p>
+                Los botones permiten realizar acciones dentro del formulario.
+            </p>
+
+            <ul>
+                <li><code>submit</code>: envía la información.</li>
+                <li><code>reset</code>: limpia los campos.</li>
+                <li><code>button</code>: botón para una acción personalizada.</li>
+            </ul>
+
+            <pre>
+&lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;button type="reset"&gt;Limpiar&lt;/button&gt;
+            </pre>
+        </section>
+
+
+        <!-- VALIDACIÓN -->
+        <section id="validacion">
+            <h2>5. Validaciones básicas</h2>
+
+            <p>
+                HTML permite realizar validaciones sencillas antes de enviar
+                la información.
+            </p>
+
+            <p>Algunos atributos utilizados son:</p>
+
+            <ul>
+                <li><code>required</code>: obliga a completar un campo.</li>
+                <li><code>minlength</code>: establece una longitud mínima.</li>
+                <li><code>maxlength</code>: establece una longitud máxima.</li>
+                <li><code>min</code>: establece un valor mínimo.</li>
+                <li><code>max</code>: establece un valor máximo.</li>
+                <li><code>type="email"</code>: verifica el formato básico de un correo.</li>
+            </ul>
+
+            <pre>
+&lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+
+&lt;input
+    type="text"
+    id="nombre"
+    required
+    minlength="3"
+&gt;
+
+&lt;label for="correo"&gt;Correo:&lt;/label&gt;
+
+&lt;input
+    type="email"
+    id="correo"
+    required
+&gt;
+            </pre>
+        </section>
+
+
+        <!-- ORGANIZACIÓN -->
+        <section>
+            <h2>6. Organización de la información</h2>
+
+            <p>
+                Los formularios deben organizarse en grupos lógicos para
+                facilitar su lectura y utilización.
+            </p>
+
+            <p>
+                La etiqueta <code>&lt;fieldset&gt;</code> permite agrupar
+                campos relacionados y <code>&lt;legend&gt;</code> proporciona
+                un título al grupo.
+            </p>
+
+            <pre>
+&lt;fieldset&gt;
+
+    &lt;legend&gt;Datos personales&lt;/legend&gt;
+
+    &lt;label&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text"&gt;
+
+    &lt;label&gt;Edad:&lt;/label&gt;
+    &lt;input type="number"&gt;
+
+&lt;/fieldset&gt;
+            </pre>
+        </section>
+
+
+        <!-- FORMULARIO COMPLETO -->
+        <section id="ejemplo">
+            <h2>7. Ejemplo completo de formulario</h2>
+
+            <p>
+                El siguiente formulario integra los elementos estudiados:
+                etiquetas, campos, listas, opciones, botones y validaciones.
+            </p>
+
+            <div class="formulario">
+
+                <form>
+
+                    <fieldset>
+
+                        <legend>Datos personales</legend>
+
+                        <label for="nombre">
+                            Nombre completo:
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Escribe tu nombre"
+                            required
+                            minlength="3"
+                        >
+
+
+                        <label for="correo">
+                            Correo electrónico:
+                        </label>
+
+                        <input
+                            type="email"
+                            id="correo"
+                            name="correo"
+                            placeholder="ejemplo@correo.com"
+                            required
+                        >
+
+
+                        <label for="edad">
+                            Edad:
+                        </label>
+
+                        <input
+                            type="number"
+                            id="edad"
+                            name="edad"
+                            min="15"
+                            max="100"
+                            required
+                        >
+
+                    </fieldset>
+
+
+                    <fieldset>
+
+                        <legend>Información académica</legend>
+
+                        <label for="especialidad">
+                            Especialidad:
+                        </label>
+
+                        <select
+                            id="especialidad"
+                            name="especialidad"
+                            required
+                        >
+
+                            <option value="">
+                                Seleccione una especialidad
+                            </option>
+
+                            <option value="programacion">
+                                Programación
+                            </option>
+
+                            <option value="redes">
+                                Redes
+                            </option>
+
+                            <option value="ofimatica">
+                                Ofimática
+                            </option>
+
+                        </select>
+
+
+                        <label>
+                            Semestre:
+                        </label>
+
+                        <div class="opciones">
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="semestre"
+                                    value="segundo"
+                                    required
+                                >
+                                Segundo
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="semestre"
+                                    value="cuarto"
+                                >
+                                Cuarto
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="semestre"
+                                    value="sexto"
+                                >
+                                Sexto
+                            </label>
+
+                        </div>
+
+
+                        <label>
+                            Temas de interés:
+                        </label>
+
+                        <div class="opciones">
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    name="intereses"
+                                    value="html"
+                                >
+                                HTML
+                            </label>
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    name="intereses"
+                                    value="css"
+                                >
+                                CSS
+                            </label>
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    name="intereses"
+                                    value="javascript"
+                                >
+                                JavaScript
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <fieldset>
+
+                        <legend>Comentarios</legend>
+
+                        <label for="comentarios">
+                            Escribe un comentario:
+                        </label>
+
+                        <textarea
+                            id="comentarios"
+                            name="comentarios"
+                            rows="5"
+                            maxlength="300"
+                            placeholder="Escribe aquí tus comentarios..."
+                        ></textarea>
+
+                    </fieldset>
+
+
+                    <div class="botones">
+
+                        <button
+                            type="submit"
+                            class="enviar"
+                        >
+                            Enviar formulario
+                        </button>
+
+                        <button
+                            type="reset"
+                            class="limpiar"
+                        >
+                            Limpiar
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- RESUMEN -->
+        <section>
+            <h2>8. Resumen</h2>
+
+            <table border="1" width="100%" cellpadding="8">
+
+                <tr>
+                    <th>Elemento</th>
+                    <th>Función</th>
+                </tr>
+
+                <tr>
+                    <td>&lt;form&gt;</td>
+                    <td>Define el formulario.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;label&gt;</td>
+                    <td>Identifica un campo.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;input&gt;</td>
+                    <td>Permite introducir diferentes tipos de datos.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;select&gt;</td>
+                    <td>Permite seleccionar una opción de una lista.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;textarea&gt;</td>
+                    <td>Permite introducir textos largos.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;button&gt;</td>
+                    <td>Permite realizar acciones.</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;fieldset&gt;</td>
+                    <td>Agrupa información relacionada.</td>
+                </tr>
+
+                <tr>
+                    <td>required</td>
+                    <td>Indica que un campo es obligatorio.</td>
+                </tr>
+
+            </table>
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>Práctica de HTML — Diseño de formularios</p>
+        <p>Material educativo para bachillerato tecnológico</p>
+    </footer>
+
+</body>
+</html>
